@@ -36,7 +36,7 @@ namespace RentACar
                     }
                     photo.ImageUrl = $"/CarImages/{car.Photo}";
                     ViewState["price"] = car.DailyPrice;
-                    lblDailyPrice.Text = string.Format("{0:c}", car.DailyPrice);
+                    lblDailyPrice.Text = (string.Format("{0:N}", car.DailyPrice)) + "₺";
                     lblPlateNumber.Text = car.PlateNumber;
 
                 }
@@ -49,7 +49,9 @@ namespace RentACar
         {
             if (!User.Identity.IsAuthenticated)
             {
-                Response.Redirect("/Account/Login");
+                //Response.Redirect("/Account/Login");
+                Response.Redirect("/Account/Login.aspx?login="+ kytol.Text);
+
                 return;
             }
             //Kirala.aspx?id=5 --> Bu 5'i almamız gerek.
@@ -92,8 +94,9 @@ namespace RentACar
                 ctx.CarRentals.Add(carRental);
                 car.TotalRentCount += 1;
                 ctx.SaveChanges();
-                Response.Redirect("/");
+                Response.Redirect("/Odeme");
             }
+            
 
         }
         protected void CalCulateTotalPrice()
@@ -102,8 +105,11 @@ namespace RentACar
             {
                 DateTime startDate = DateTime.Parse(txtStartDate.Text);
                 DateTime endDate = DateTime.Parse(txtEndDate.Text);
+                Console.Write(endDate);
                 double totalDays = Math.Floor((endDate - startDate).TotalDays);
-                lblTotalPrice.Text = ((decimal)totalDays * (decimal)ViewState["price"]).ToString();
+                lblTotalPrice.Text = (((decimal)totalDays * (decimal)ViewState["price"]).ToString()) + "₺";
+             
+
             }
             catch (Exception)
             {
@@ -118,7 +124,13 @@ namespace RentACar
 
         protected void txtEndDate_TextChanged(object sender, EventArgs e)
         {
+       
             CalCulateTotalPrice();
+        }
+
+        protected void txtStartDate_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

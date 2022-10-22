@@ -11,6 +11,7 @@ namespace RentACar.Account
 {
     public partial class Register : Page
     {
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -35,6 +36,11 @@ namespace RentACar.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

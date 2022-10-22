@@ -120,7 +120,7 @@
       }
 
       .info-section:last-of-type {
-        text-align: right;
+        text-align: center;
       }
 
       .info-section label {
@@ -176,7 +176,7 @@
           <a href="#">
             <h3 class="movie-title"><asp:HyperLink Text="Kirala" runat="server"  CssClass="btn btn-primary btn-lg" NavigateUrl='<%# Eval("Id", "~/Kirala?id={0}") %>'></asp:HyperLink></h3>
           </a>
-          <div class="imax-logo"><%# Eval("DailyPrice", "{0:c}") %>₺</div>
+          <div class="imax-logo">Günlük <%# Eval("DailyPrice", "{0:N}") %>₺</div>
         </div>
         <div class="movie-info">
           <div class="info-section">
@@ -185,14 +185,10 @@
           </div>
           <!--date,time-->
           <!--screen-->
-          <div class="info-section">
-            <label>Yıl</label>
-            <span>2015</span>
-          </div>
           <!--row-->
           <div class="info-section">
             <label>Koltuk</label>
-            <span>5</span>
+            <span>4</span>
           </div>
           <!--seat-->
         </div>

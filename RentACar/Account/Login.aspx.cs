@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
@@ -12,6 +13,14 @@ namespace RentACar.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string kytmsj;
+            kytmsj = Request.QueryString["login"];
+            if (kytmsj != null)
+            {
+                lblKayitOl.Text = "Araç kiralamak için lütfen giriş yapınız.";
+            }
+            
+            
             RegisterHyperLink.NavigateUrl = "Register";
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
@@ -56,6 +65,11 @@ namespace RentACar.Account
                         break;
                 }
             }
+        }
+
+        protected void Password_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

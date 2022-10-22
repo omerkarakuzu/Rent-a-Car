@@ -13,8 +13,9 @@ namespace RentACar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (User.Identity.IsAuthenticated)
+            //if (!User.Identity.IsAuthenticated)
             //{
+
             //    Response.Redirect("/Account/Login");
             //}
         }
@@ -23,6 +24,7 @@ namespace RentACar
         {
             if (!Page.IsValid)
             {
+               
                 return;
             }
             string validExts = ".jpg|.jpeg|.png";
@@ -45,7 +47,10 @@ namespace RentACar
                 };
                 context.Cars.Add(car);
                 context.SaveChanges();
-
+                PlateNumber.Text = "";
+                Color.Text = "";
+                Price.Text = "";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Başarıyla Eklendi.')", true);
 
             }
         }

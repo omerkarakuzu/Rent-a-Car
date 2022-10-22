@@ -16,10 +16,10 @@ namespace RentACar
             {
                 using (var ctx = new ApplicationDbContext())
                 {
-                    var topCars = ctx.Cars.OrderByDescending(c => c.TotalRentCount).Take(6).ToList();
+                    var topCars = ctx.Cars.OrderByDescending(c => c.TotalRentCount).Take(9).ToList();
                     TopShowCarList.Data = topCars;
 
-                    FirsatShowCarList.Data = ctx.Cars.OrderBy(c => c.DailyPrice).Take(6).ToList();
+                    FirsatShowCarList.Data = ctx.Cars.OrderBy(c => c.DailyPrice).Take(9).ToList();
                 }
             }
         }

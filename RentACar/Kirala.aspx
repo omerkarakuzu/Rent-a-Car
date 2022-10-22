@@ -14,7 +14,7 @@
                           <dl class="dl-horizontal">
                                      <dt>Başlangıç Tarihi</dt>
                               <dd> 
-                                  <asp:TextBox ID="txtStartDate" CssClass="form-control" runat="server" TextMode="Date"></asp:TextBox>
+                                  <asp:TextBox ID="txtStartDate" CssClass="form-control" runat="server" TextMode="Date" OnTextChanged="txtStartDate_TextChanged"></asp:TextBox>
                     </dd>
                                          <dt>Bitiş Tarihi</dt>
 
@@ -35,7 +35,7 @@
     margin-top: 15px;
    " CssClass="form-control btn-primary " Text="Kirala" OnClick="Rent_Click" /></div>
                                   </div>
-                                                           
+                                  <asp:TextBox ID="kytol" Text="!login" Visible="false" runat="server"></asp:TextBox>             
 
                               </dd>
                     </dl>

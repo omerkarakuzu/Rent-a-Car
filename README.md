@@ -1,9 +1,9 @@
 # ASP .NET ile Araç Kiralama Sitesi
 
 ## İçerik
-Code-First mantığıyla oluşturduğum veritabanına;
+Veritabanını Code-First mantığıyla oluşturduğum siteye;
 
-- Admin olarak araç eklenebilmekte 
+- Yalnızca admin olarak araç eklenebilmekte 
 
 
 
